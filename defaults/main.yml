@@ -1,0 +1,5 @@
+---
+root_dir: "/var/www/{{ project_name }}"
+source_dir: "{{ root_dir }}/src"
+project_user: "{{ project_name }}"
+ignore_devdependencies: false

@@ -1,0 +1,25 @@
+---
+- name: chown node_modules
+  file:
+    owner: "{{ project_user }}"
+    group: "{{ project_user }}"
+    path: "{{ source_dir }}/node_modules"
+    recurse: yes
+
+- name: check developer dependencies
+  command: npm ls -dev --parseable --prefix {{ nodejs_package_json_path }}
+  when: not ignore_devdependencies
+  register: dev_dependencies
+
+- name: fail when there are project-level devDependencies
+  fail:
+    msg: "There are packages listed under `devDependencies`. Please move them to `dependencies` instead."
+  when: not ignore_devdependencies and dev_dependencies.stdout_lines|length > 1
+
+- name: npm run build
+  command: npm run build
+  args:
+    chdir: "{{ source_dir }}"
+  become_user: "{{ project_user }}"
+  vars:
+    ansible_ssh_pipelining: true
