@@ -16,8 +16,8 @@
     msg: "There are packages listed under `devDependencies`. Please move them to `dependencies` instead."
   when: not ignore_devdependencies and dev_dependencies.stdout_lines|length > 1
 
-- name: npm run build
-  command: npm run build
+- name: npm run {{ npm_run_command }}
+  command: npm --quiet run {{ npm_run_command }}
   args:
     chdir: "{{ source_dir }}"
   become_user: "{{ project_user }}"

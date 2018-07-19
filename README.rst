@@ -99,6 +99,9 @@ The following variables are used by the ``tequila-nodejs`` role:
 - ``ignore_devdependencies`` **default:** ``false``
 - ``nodejs_package_json_path`` **required**, typically should be ``"{{
   source_dir }}"``
+- ``npm_run_command`` **default** ``build`` - tequila-nodejs runs
+  ``npm run build`` by default, this lets you change that to run
+  a different *run* command.
 
 Due to `some <https://github.com/npm/npm/issues/17471>`_ `issues
 <https://github.com/ansible/ansible/issues/29234>`_ discovered with
