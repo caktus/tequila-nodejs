@@ -73,7 +73,7 @@ project requires ::
       name: nodejs
 
     - src: https://github.com/caktus/tequila-nodejs
-      version: v0.8.0
+      version: v0.8.1
 
 Run ``ansible-galaxy`` with your requirements file ::
 

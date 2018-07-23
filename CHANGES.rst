@@ -3,6 +3,13 @@ Tequila-nodejs
 
 Changes
 
+v 0.8.1 on Jul 23, 2018
+-----------------------
+
+* New variable ``npm_run_command`` **default** ``build`` - tequila-nodejs runs
+  ``npm run build`` by default, this lets you change that to run
+  a different *run* command.
+
 v 0.8.0 on Apr 26, 2018
 -----------------------
 
