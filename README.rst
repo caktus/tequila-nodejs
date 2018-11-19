@@ -63,17 +63,17 @@ project requires ::
     ---
     # file: deployment/requirements.yml
     - src: https://github.com/caktus/tequila-common
-      version: v0.8.0
+      version: v0.8.8
 
     - src: https://github.com/caktus/tequila-django
-      version: v0.9.11
+      version: v0.9.18
 
     - src: geerlingguy.nodejs
-      version: 4.1.2
+      version: 4.2.2
       name: nodejs
 
     - src: https://github.com/caktus/tequila-nodejs
-      version: v0.8.1
+      version: v0.8.2
 
 Run ``ansible-galaxy`` with your requirements file ::
 
