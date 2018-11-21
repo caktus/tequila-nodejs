@@ -4,7 +4,7 @@ galaxy_info:
   description: Django project deployment -- nodejs
   company: Caktus Consulting Group, LLC
   license: BSD
-  min_ansible_version: 1.9
+  min_ansible_version: 2.4
   platforms:
     - name: Ubuntu
       versions: all
@@ -14,4 +14,11 @@ galaxy_info:
     - installer
     - web
 dependencies:
-  - { role: geerlingguy.nodejs }
+  # First, install nodejs as root, but don't install any packages
+  - role: geerlingguy.nodejs
+    become: true
+    nodejs_package_json_path: ""
+  # Second, install packages as the project user to ensure node_modules are
+  # installed as the project user:
+  - role: geerlingguy.nodejs
+    become_user: "{{ project_user }}"
