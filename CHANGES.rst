@@ -3,6 +3,17 @@ Tequila-nodejs
 
 Changes
 
+v 0.8.2 on Nov 21, 2018
+-----------------------
+
+* Updated project dependencies to ensure that project packages
+  get installed as the project user. Prior to this release,
+  geerlingguy.nodejs would install both Node and the project
+  Node dependencies as root, causing permissions issues.
+  Now Node and project Node dependencies are installed in
+  two separate steps, the former as root, the latter as
+  the project user.
+
 v 0.8.1 on Jul 23, 2018
 -----------------------
 
