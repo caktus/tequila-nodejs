@@ -26,5 +26,7 @@
 
 - name: cp webpack-stats.json webpack-stats-live.json
   command: cp webpack-stats.json webpack-stats-live.json
+  args:
+    chdir: "{{ source_dir }}"
   become_user: "{{ project_user }}"
   when: uses_webpack_loader
